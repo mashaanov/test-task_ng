@@ -2,14 +2,15 @@
   <a (click)="goBack()">← Back</a>
 </div>
 <div class="ArticleCard">
-  <div class="ArticleCard-description">{{ item.subtitle }}</div>
-
   <div class="ArticleCard-prop-wrapper">
     <img class="ArticleCard-image" [src]="item.image" alt="Article image" />
 
     <div class="ArticleCard-prop ArticleCard-prop_size_big">
-      <div class="ArticleCard-label">Price:</div>
-      <div class="ArticleCard-value">{{ item.price }} ₽</div>
+      <div class="ArticleCard-description">{{ item.subtitle }}</div>
+      <div class="ArticleCard-label">Price: {{ item.price }}</div>
+      <div *ngIf="isInCart" class="Cart-info">
+        <i class="fas fa-shopping-cart"></i> Already in the cart
+      </div>
     </div>
 
     <app-button

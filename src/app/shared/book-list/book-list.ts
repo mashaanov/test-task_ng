@@ -15,7 +15,7 @@ export default class BookListComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private BasketService: BasketService
+    private basketService: BasketService
   ) {}
 
   ngOnInit(): void {
@@ -23,13 +23,18 @@ export default class BookListComponent implements OnInit {
       this.books = data.books;
     });
 
-    this.BasketService.totalItems$.subscribe((total) => {
+    this.basketService.totalItems$.subscribe((total) => {
       console.log("TotalItems:", total);
     });
   }
 
   handleAdd(book: Book): void {
-    this.BasketService.addItem(book);
+    this.basketService.addItem(book);
     console.log("Добавлена книга с id:", book);
+  }
+
+
+  isInCart(bookId: string): boolean {
+    return this.basketService.isInCart(bookId);
   }
 }

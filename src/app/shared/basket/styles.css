@@ -23,3 +23,24 @@
 .Basket-info:hover {
   color: var(--primary);
 }
+
+.Basket-totalCost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+  color: var(--primary);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0.6rem;
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+  gap: 8px;
+  border: 1.5px solid var(--primary);
+  background-color: var(--background);
+  padding-block: 7px;
+  padding: 16px;
+  margin: 0 auto;
+}

@@ -6,6 +6,7 @@
       [item]="book"
       [mode]="'add'"
       (add)="handleAdd(book)"
+      [isInCart]="isInCart(book.isbn13)"
     ></app-book-item>
   </li>
   }

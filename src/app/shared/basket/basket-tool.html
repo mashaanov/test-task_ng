@@ -6,8 +6,10 @@
   <ng-template #cartItemsTemplate let-cartItem let-i="index">
     <app-book-item
       [item]="cartItem"
-      [mode]="'remove'" 
+      [mode]="'remove'"
       (remove)="handleRemove(cartItem)"
+      (increase)="handleIncrease($event)"
+      (decrease)="handleDecrease($event)"
     ></app-book-item>
   </ng-template>
 
@@ -15,4 +17,9 @@
     [items]="cartItems$ | async"
     [itemTemplate]="cartItemsTemplate"
   ></app-item-list>
+
+  <div class="Basket-totalCost">
+    Total Cost: ${{ totalCost$ | async }}
+  </div>
+  
 </app-modal-layout>

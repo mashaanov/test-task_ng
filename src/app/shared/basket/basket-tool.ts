@@ -4,8 +4,7 @@ import { Observable } from "rxjs";
 import { CommonModule } from "@angular/common";
 import { ModalService } from "../../services/modal.service";
 import ModalLayout from "../modal-layout/modal-layout";
-import { NgTemplateOutlet, NgIf, NgFor } from "@angular/common";
-import { Book } from "../../models/book.model";
+import { CartItem } from "src/app/models/cartItem.model";
 import { ItemListComponent } from "../list/list";
 import BookItem from "../book-item/book-item";
 
@@ -17,16 +16,14 @@ import BookItem from "../book-item/book-item";
   imports: [
     CommonModule,
     ModalLayout,
-    NgTemplateOutlet,
-    NgIf,
-    NgFor,
     ItemListComponent,
     BookItem,
   ],
 })
 export default class BasketTool {
   totalItems$!: Observable<number>;
-  cartItems$!: Observable<Book[]>;
+  cartItems$!: Observable<CartItem[]>;
+  totalCost$!: Observable<number>;
   isModalVisible = false;
 
   constructor(
@@ -37,6 +34,7 @@ export default class BasketTool {
   ngOnInit() {
     this.totalItems$ = this.basketService.totalItems$;
     this.cartItems$ = this.basketService.getCartItems$;
+    this.totalCost$ = this.basketService.totalCost$
   }
 
   openModalCart() {
@@ -49,7 +47,15 @@ export default class BasketTool {
     this.modalService.close();
   }
 
-  handleRemove(item: Book): void {
-    this.basketService.removeItem(item.isbn13);
+  handleRemove(item: CartItem): void {
+    this.basketService.removeItem(item.book.isbn13);
+  }
+
+  handleIncrease(bookId: string): void {
+    this.basketService.increaseQuantity(bookId);
+  }
+
+  handleDecrease(bookId: string): void {
+    this.basketService.decreaseQuantity(bookId);
   }
 }
