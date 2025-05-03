@@ -1,0 +1,18 @@
+<div class="Basket-info" (click)="openModalCart()">
+  Cart {{ totalItems$ | async }}
+</div>
+
+<app-modal-layout [visible]="isModalVisible" (close)="closeModal()">
+  <ng-template #cartItemsTemplate let-cartItem let-i="index">
+    <app-book-item
+      [item]="cartItem"
+      [mode]="'remove'" 
+      (remove)="handleRemove(cartItem)"
+    ></app-book-item>
+  </ng-template>
+
+  <app-item-list
+    [items]="cartItems$ | async"
+    [itemTemplate]="cartItemsTemplate"
+  ></app-item-list>
+</app-modal-layout>

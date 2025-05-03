@@ -1,0 +1,30 @@
+.Item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  transition: background-color 1s;
+}
+
+.Item-img {
+  width: 100%;
+  max-width: 50px;
+}
+
+.Item-title {
+  font-weight: bold;
+}
+
+.Item-title:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.Item-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  flex: auto;
+}

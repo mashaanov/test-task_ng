@@ -1,0 +1,16 @@
+<div
+  class="ModalLayout"
+  [class.visible]="visible"
+  [class.hidden]="!visible"
+  #layout
+>
+  <div class="ModalLayout-frame" #frame>
+    <div class="ModalLayout-head">
+      <h1 class="ModalLayout-title">Корзина</h1>
+      <button class="ModalLayout-close" (click)="onClose()"></button>
+    </div>
+    <div class="ModalLayout-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.Toolbar-container {
+  position: relative;
+  margin: 0 5rem 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.Search-input {
+  width: 20%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.Search-input:focus {
+  box-shadow: 0 0 5px rgba(76, 0, 255, 0.5);
+}
+
+.Search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.Toolbar-select {
+  margin-left: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.Toolbar-select mat-select {
+  width: 200px;
+  min-width: 100px;
+  max-width: 150px;
+}

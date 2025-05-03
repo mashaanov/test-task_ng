@@ -1,0 +1,9 @@
+<ul class="List">
+  <ng-container *ngFor="let item of items; let i = index">
+    <li class="List-item" [class.List-item_odd]="i % 2 === 0">
+      <ng-container
+        *ngTemplateOutlet="itemTemplate; context: { $implicit: item, index: i }"
+      ></ng-container>
+    </li>
+  </ng-container>
+</ul>

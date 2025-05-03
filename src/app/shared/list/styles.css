@@ -1,0 +1,15 @@
+.List {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 5rem 5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.List-item {
+  border-bottom: 1px solid var(--divider);
+}
+
+.List-item_odd {
+  background-color: var(--odd-item);
+}

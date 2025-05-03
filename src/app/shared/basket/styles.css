@@ -1,0 +1,25 @@
+.Basket-info {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: 0.6rem;
+  min-width: 105px;
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+  gap: 8px;
+  border: 1.5px solid var(--primary);
+  background-color: var(--background);
+  padding-block: 7px;
+  padding: 16px;
+}
+
+.Basket-info:hover {
+  color: var(--primary);
+}

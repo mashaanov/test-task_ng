@@ -1,0 +1,33 @@
+<div class="Toolbar-container">
+  <input
+    class="Search-input"
+    type="text"
+    [(ngModel)]="search"
+    (input)="onSearch()"
+    placeholder="Search"
+  />
+
+  <div class="Toolbar-select">
+    <mat-select
+      [(ngModel)]="sortField"
+      (selectionChange)="onFieldChange($event.value)"
+      placeholder="Select sort field"
+    >
+      <mat-option value="title">Sort by title</mat-option>
+      <mat-option value="price">Sort by price</mat-option>
+    </mat-select>
+
+    <mat-select
+      [(ngModel)]="sortOrder"
+      (selectionChange)="onOrderChange($event.value)"
+      placeholder="Select sort order"
+    >
+      <mat-option value="asc">Ascending</mat-option>
+      <mat-option value="desc">Descending</mat-option>
+    </mat-select>
+  </div>
+
+  <button (click)="resetFilters()" class="reset-button">Reset Filters</button>
+
+  <app-basket-tool></app-basket-tool>
+</div>

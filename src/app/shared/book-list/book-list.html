@@ -1,0 +1,12 @@
+<div *ngIf="books?.length">Книг загружено: {{ books.length }}</div>
+<ul class="List">
+  @for (book of books; track book.isbn13; let i = $index) {
+  <li class="List-item" [class.List-item_odd]="i % 2 === 0">
+    <app-book-item
+      [item]="book"
+      [mode]="'add'"
+      (add)="handleAdd(book)"
+    ></app-book-item>
+  </li>
+  }
+</ul>

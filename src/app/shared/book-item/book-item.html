@@ -1,0 +1,29 @@
+<div class="Item">
+  <img class="Item-img" [src]="item.image" alt="Обложка книги" />
+  <div class="Item-title">
+    <a
+      [routerLink]="['/products', item.isbn13]"
+      routerLinkActive="productDetails"
+    >
+      {{ item.title }}
+    </a>
+  </div>
+  <div class="Item-description">{{ item.subtitle }}</div>
+  <div class="Item-actions">
+    <div class="Item-price">{{ item.price }}</div>
+    <app-button
+      *ngIf="mode === 'add'"
+      title="Add"
+      btnStyle="primary"
+      type="button"
+      (buttonClick)="onAdd()"
+    ></app-button>
+    <app-button
+      *ngIf="mode === 'remove'"
+      title="Remove"
+      btnStyle="delete"
+      type="button"
+      (buttonClick)="onRemove()"
+    ></app-button>
+  </div>
+</div>
