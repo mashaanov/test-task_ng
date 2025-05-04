@@ -4,7 +4,7 @@
 
 ## 🚀 Технологии
 
-- Angular (последняя версия)
+- Angular 19
 - TypeScript
 - RxJS
 - Git + GitHub
