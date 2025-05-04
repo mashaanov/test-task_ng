@@ -22,6 +22,7 @@ git clone git@github.com:mashaanov/test-task_ng.git
 cd test-task_ng
 npm install
 npm start
+```
 
+👉 [Перейти к проекту](https://mashaanov.github.io/test-task_ng/)
 
-https://mashaanov.github.io/test-task_ng/
