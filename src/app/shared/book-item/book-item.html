@@ -1,27 +1,26 @@
 <div class="Item">
   <img class="Item-img" [src]="getImage()" alt="Обложка книги" />
 
-  <div class="Item-title">
-    <a
-      [routerLink]="['/products', getIsbn()]"
-      routerLinkActive="productDetails"
-    >
-      {{ getTitle() }}
-    </a>
+  <div class="Item-text">
+    <div class="Item-title">
+      <a [routerLink]="['/products', getIsbn()]" routerLinkActive="productDetails">
+        {{ getTitle() }}
+      </a>
+    </div>
+    <div class="Item-description">{{ getSubtitle() }}</div>
   </div>
-  <div class="Item-description">{{ getSubtitle() }}</div>
 
-  <div class="Item-controls-wrapper">
-    <div *ngIf="mode === 'remove'" class="Item-quantity-controls">
+  <div class="Item-right">
+    <i *ngIf="isInCart" class="fas fa-shopping-cart Cart-icon"></i>
+    
+    <div class="Item-price">{{ getPrice() }}</div>
+
+    <div class="Item-quantity-controls" *ngIf="mode === 'remove'">
       <button (click)="decrease.emit(getIsbn())">−</button>
       <div class="Item-quantity">{{ item.quantity }}</div>
       <button (click)="increase.emit(getIsbn())">+</button>
     </div>
-  </div>
 
-  <div class="Item-actions">
-    <i *ngIf="isInCart" class="fas fa-shopping-cart Cart-icon"></i>
-    <div class="Item-price">{{ getPrice() }}</div>
     <app-button
       *ngIf="mode === 'add'"
       title="Add"
@@ -29,6 +28,7 @@
       type="button"
       (buttonClick)="onAdd()"
     ></app-button>
+
     <app-button
       *ngIf="mode === 'remove'"
       title="Remove"

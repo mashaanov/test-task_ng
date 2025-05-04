@@ -2,10 +2,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
   transition: background-color 1s;
-  min-height: 100px;
+  padding: 16px;
 }
 
 .Item-img {
@@ -36,16 +34,16 @@
   gap: 1px;
 }
 
-.Item-controls-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-left: auto;
-}
-
 .Cart-icon {
-  position: absolute;
-  left: 1080px;
   color: var(--primary);
   font-size: 1rem;
 }
+
+.Item-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+

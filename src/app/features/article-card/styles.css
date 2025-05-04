@@ -1,16 +1,17 @@
 .ArticleCard {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 24px;
-  padding-block: 24px;
+  padding: 24px 16px;
+  position: relative;
+  text-align: center;
 }
 
 .ArticleCard-description {
   font-size: 18px;
   line-height: 1.4;
+  margin-top: 12px;
 }
 
 .ArticleCard-prop-wrapper {
@@ -20,22 +21,17 @@
 }
 
 .ArticleCard-image {
-  position: relative;
-  top: -60px;
   width: 100%;
-  max-width: 30vw;
+  max-width: 300px;
   height: auto;
+  margin: 0 auto;
   object-fit: cover;
   border-radius: 8px;
-  align-self: center;
 }
 
 .ArticleCard-prop {
-  position: relative;
-  top: -100px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 10px;
 }
@@ -47,33 +43,26 @@
 }
 
 .ArticleCard-label {
-  margin: 0 auto;
-  width: 200px;
+  width: fit-content;
 }
 
 .ArticleCard-value {
-  margin: 0 auto;
   font-weight: bold;
-}
-
-.ArticleCard-prop_size_big .ArticleCard-label {
-  width: fit-content;
 }
 
 .ArticleBackHome {
   cursor: pointer;
   margin-top: 20px;
-  margin-left: 100px;
+  align-self: flex-start;
+  margin-left: 90px;
 }
 
 .Article-addButton {
-  margin: 0 auto;
-  position: relative;
-  top: -30px;
+  margin-top: 16px;
 }
 
 .Cart-info {
-  margin-top: 10px;
+  margin-top: 12px;
   color: var(--primary);
   font-weight: bold;
   font-size: 14px;

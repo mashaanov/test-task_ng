@@ -54,24 +54,25 @@ export class BookService {
   searchBooks(query: string): void {
     const lowerQuery = query.toLowerCase();
     this.filteredBooks = this.originalBooks.filter((book) => {
-      return (
-        book.title.toLowerCase().includes(lowerQuery) ||
-        book.subtitle.toLowerCase().includes(lowerQuery)
-      );
+      const title = book.title?.toLowerCase() ?? "";
+      const subtitle = book.subtitle?.toLowerCase() ?? "";
+      return title.includes(lowerQuery) || subtitle.includes(lowerQuery);
     });
     this.updateBooks();
   }
 
   onSort(field: string, order: string) {
     this.filteredBooks.sort((a, b) => {
-      const valueA =
-        field === "price"
-          ? parseFloat(a[field].replace(/[^0-9.]/g, ""))
-          : a[field].toLocaleLowerCase();
-      const valueB =
-        field === "price"
-          ? parseFloat(b[field].replace(/[^0-9.]/g, ""))
-          : b[field].toLocaleLowerCase();
+      let valueA: string | number;
+      let valueB: string | number;
+
+      if (field === "price") {
+        valueA = parseFloat(a[field]?.replace(/[^0-9.]/g, "") ?? "0");
+        valueB = parseFloat(b[field]?.replace(/[^0-9.]/g, "") ?? "0");
+      } else {
+        valueA = a[field]?.toLocaleLowerCase?.() ?? "";
+        valueB = b[field]?.toLocaleLowerCase?.() ?? "";
+      }
 
       if (valueA > valueB) {
         return order === "asc" ? 1 : -1;
